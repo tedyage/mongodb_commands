@@ -22,3 +22,39 @@ db.[collectionname].find(
         }
     }
 )
+
+//And查询
+db.[collectionname].find(
+    {
+        "key1":"value1",
+        "key2":"value2"
+    }
+)
+//查询满足key1匹配value1，并且key2匹配value2的documents
+
+//Or查询
+db.[collectionname].find(
+    $or:[
+        {
+            "key1:"value1"
+        },
+        {
+            "key2":"value2"
+        }
+    ]
+)
+//查询满足key1匹配value1，或者key2匹配value2的documents
+
+//And与Or联合查询
+db.[collectionname].find(
+    "key1" : "value1",
+    $or:[
+        {
+            "key2" : "value2"
+        },
+        {
+            "key3" : "value3"
+        }
+    ]
+)
+//查询满足key1匹配value1，并且满足key2匹配value2或者key3匹配value3的documents
