@@ -1,0 +1,32 @@
+插入一个document
+db.[collectionname].insert({
+    "key1" : "value1",
+    "key2" : "value2",
+    "key3" : value3
+});
+//完成插入后，返回结果是WriteResult({"nInsert":1})
+
+插入多个documents
+db.[collectionname].insert([
+    {
+        "key1" : "value1",
+        "key2" : "value2",
+        "key3" : value3
+    },
+    {
+        "key1" : "value4",
+        "key2" : "value5",
+        "key3" : value6
+    }
+]);
+//完成插入后，返回的结果是
+BulkWriteResult({
+    "writeErrors" : [],
+    "writeConcernError" : [],
+    "nInserted" : 2,
+    "nUpserted" : 0,
+    "nMatched" : 0,
+    "nModified" : 0,
+    "nRemoved" : 0,
+    "upserted" : []
+})
