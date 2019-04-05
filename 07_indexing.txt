@@ -1,0 +1,8 @@
+对于数据量很大的collection，想要在其中查找某一条记录，
+对于CPU的开销会很大，效率也会很低，
+加入index，可以降低CPU开销，提高查询效率
+
+//创建Index，将key1创建为Index
+db.[collectionname].ensureIndex({"key1":1})
+//删除Index，将key1上的Index删除
+db.[collectionname].dropIndex({"key1":1})
