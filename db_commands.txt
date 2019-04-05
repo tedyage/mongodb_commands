@@ -1,0 +1,13 @@
+显示当前的Database
+db
+显示当前服务器所有的Database
+show dbs
+切换到某个Database
+[dbname]      //直接输入要切换的Database的名称即可
+创建Database
+use [dbname]  //如果要use的dbname对应的Database存在，则直接切换；否则会创建这个Database，在切换到这个Database下
+删除Database
+[dbname]           //先切换到这个Database  
+db.dropDatabase()  //执行数据库删除命令
+
+
