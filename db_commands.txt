@@ -5,9 +5,21 @@ show dbs
 切换到某个Database
 [dbname]      //直接输入要切换的Database的名称即可
 创建Database
-use [dbname]  //如果要use的dbname对应的Database存在，则直接切换；否则会创建这个Database，在切换到这个Database下
+use [dbname]  
+//如果要use的dbname对应的Database存在，则直接切换；
+//否则会创建这个Database，在切换到这个Database下
+//该指令的返回结果是：switched to db [dbname]
 删除Database
 [dbname]           //先切换到这个Database  
-db.dropDatabase()  //执行数据库删除命令
+db.dropDatabase()  
+//执行数据库删除命令，如果完成删除，返回结果是
+{ 
+    "dropped" : "mydb", 
+    "ok" : 1.0
+}
+//如果删除完成后再次执行删除指令，返回结果是
+{
+    "ok" : 1.0
+}
 
 

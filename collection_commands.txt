@@ -1,0 +1,26 @@
+显示当前Database下所有的Collection
+show collections
+创建新的collection
+db.createCollection([name],[options]?)     
+//如果创建完成，返回结果是
+{
+    "ok" : 1.0
+}
+//如果执行出现错误，返回结果是
+{
+    "ok" : 0.0,
+    "errmsg" : "xxxxxxx"
+    "code" : xx.x
+    "codeName" : "xxxxxxxx"
+}
+或者
+db.[collectionname].insert([json])  
+//判断[collectionname]对应的Collection是否存在，
+//如果存在，则执行insert指令，
+//如果不存在，则新建该Collection，再执行insert指令。
+//创建完成后，返回的结果是WriteResult({ "nInserted" : 1 })
+删除collection
+db.[collectionname].drop()   
+//删除collectionname对应的collection，
+//如果完成删除，返回true，
+//如果没有正常删除，返回false
