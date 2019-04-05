@@ -69,3 +69,15 @@ db.[collectionname].find({},
         "key3":true,
     })
 //查询结果中，只含有key2和key3两个field
+
+//limit(n)，用于限制查询结果的个数，如果查询出5个documents，而limit(3)的意思是，只返回前三条结果
+db.[collectionname].find([query],[projection]).limit(n)  //限制返回n条
+
+//skip(m)，用于指定查询结果中，跳过的documents的个数，如果查询出5个documents，而skip(2)的意思是，跳过前2个，返回后面的结果
+db.[collectionname].find([query],[projection]).skip(m)  //跳过m条
+db.[collectionname].find([query],[projection]).skip(m).limit(n)   //跳过m条后，返回n条结果
+//注意skip(m)和limit(n)两个方法的优先级是相同的，即.skip(m).limit(n)和.limit(n).skip(m)是相同的
+//如果查到了5个documents,则.limit(3).skip(1)的含义，依然是先跳过一条，再限制返回3条，最终返回的结果依然是2，3，4条。
+
+//sort({"key1",1})，用于对查询的documents做某种排序
+db.[collectionname].find([query],[projection]).sort({"key1":1})   //根据key1，排序
