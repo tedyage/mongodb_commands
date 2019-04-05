@@ -1,0 +1,16 @@
+删除documents
+执行的指令是：db.[collectionname].remove(query,{justOne?,writeConcern?,collation?}?)
+//query，表示的是匹配的条件
+
+db.[collectionname].remove(
+    {
+        "key1": "value1"
+    }
+)
+//该语句删除的是所有key1匹配value1的documents
+//如果只想删除其中1个document，需要这样写
+db.[collectionname].remove(
+    {
+        "key1": "value1"
+    },1
+)
