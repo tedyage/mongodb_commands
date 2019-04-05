@@ -1,0 +1,30 @@
+修改document的指令
+db.[collectionname].update([query],[update],[options]?)
+//query, 查询条件
+//update, 执行修改
+//options, 修改条件
+
+db.[collectionname].update(
+    {
+        "key1":"value1"        //对key1匹配value1的documents进行修改
+    },
+    {
+        $set:{                     //$set操作符，表示修改操作
+            "key2":"value2"        //对key2这个field，修改其值为value2
+        } 
+    },
+    {
+        "option":"value3"      //执行条件
+    }
+)
+//如果完成修改，返回的结果是：WriteResult({"nMatched":1, "nUpserted":0, "nModified":1})
+
+//$set操作符，需要注意的一点是，他一次只能修改满足query条件的documents当中的第一个document，
+//也就是说，加入通过query条件，查到了多个documents，一个$set修改，并不能将所有的documents上起到效果，只能在第一个document上起到效果
+//如需要在所有的满足query条件的documents上完成修改，需要加入option{"multi":true}，表示修改多条。
+//如果完成多条修改，返回的结果是：WriteResult({"nMatched":n, "nUpserted":0, "nModified":n})
+
+db.[collectionname].save([document])
+//该语句执行时，现根据参数document中的唯一标识查找collection中是否存在这个document，
+//如果存在，则执行数据更新，返回的结果是：WriteResult({"nMatched":1, "nUpserted":0, "nModified":1})
+//如果不存在，则执行数据插入，返回的结果是：WriteResult({"nMatched":0, "nUpserted":1, "nModified":0})
