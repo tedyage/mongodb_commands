@@ -58,3 +58,14 @@ db.[collectionname].find(
     ]
 )
 //查询满足key1匹配value1，并且满足key2匹配value2或者key3匹配value3的documents
+
+//查询documents之中，指定的一些fields，指定projection
+db.[collectionname].find({query},{projection})
+
+db.[collectionname].find({},
+    {
+        "key1":false,
+        "key2":true,
+        "key3":true,
+    })
+//查询结果中，只含有key2和key3两个field
