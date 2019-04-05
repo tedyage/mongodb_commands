@@ -1,0 +1,24 @@
+查询所有的documents
+db.[collectionname].find()            //返回所有documents
+db.[collectionname].find().pretty()   //返回所有documents，并且将每个document展开显示，方便观察field  
+查询第一条document
+db.[collectionname].findOne()         //返回所查documents中的第一条
+根据查询条件，匹配查询
+db.[collectionname].find(
+    {
+        "key1":"value"
+    }
+)
+//查询所有key1的值匹配value的documents
+根据查询条件，范围查询
+db.[collectionname].find(
+    {
+        "key1":{
+            $gt:xx,             //$gt, great than,大于
+            $gte:xxx,           //$gte, great than an equal to, 大于等于
+            $lt:xx,             //$lt, less than, 小于
+            $lte:www,           //$lte, less than an equal to, 小于等于
+            $ne:sss             //$ne, not equal to, 不等于
+        }
+    }
+)
