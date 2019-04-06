@@ -20,7 +20,7 @@ db.[collectionname].update(
 //如果完成修改，返回的结果是：WriteResult({"nMatched":1, "nUpserted":0, "nModified":1})
 
 //$set操作符，需要注意的一点是，他一次只能修改满足query条件的documents当中的第一个document，
-//也就是说，加入通过query条件，查到了多个documents，一个$set修改，并不能将所有的documents上起到效果，只能在第一个document上起到效果
+//也就是说，假如通过query条件，查到了多个documents，一个$set修改，并不能在所有的documents上起到效果，只能在第一个document上起到效果
 //如需要在所有的满足query条件的documents上完成修改，需要加入option{"multi":true}，表示修改多条。
 //如果完成多条修改，返回的结果是：WriteResult({"nMatched":n, "nUpserted":0, "nModified":n})
 
