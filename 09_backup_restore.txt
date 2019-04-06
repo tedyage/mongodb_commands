@@ -1,0 +1,15 @@
+Database和Collection的备份与恢复
+备份命令：mongodump 
+//只运行mongodump，系统会将个人在该服务器上建立的所有Database，一起备份到备份文件夹
+//如果想备份某个Database，需要输入Database名称，像这样：
+mongodump --db [dbname]
+//这样就只会将指定dbname的Database备份到备份文件夹。
+//如果想备份某个Database里的某个Collection，需要再输入Database名称之后，再输入Collection名称
+mongodump --db [dbname] --collection [collectionname]
+
+恢复命令：mongorestore
+//只运行mongorestore，系统会将备份文件夹下所有的备份数据库，一起恢复到当前数据库所在的文件夹下
+//如果想恢复指定的Database，需要输入Database名称，还要输入需要恢复的备份文件所在的相对路径，像这样：
+mongorestore --db [dbname] [dumppath]
+//如果想恢复某个Database里面的某个collection，需要在输入Collection名称之后，在输入对应的备份bson文件的相对路径
+mongorestore --db [dbname] --collection [collectionname] [bsonFilePath]
