@@ -1,0 +1,37 @@
+聚合查找，可以根据分组，查询documents中每组的总数，最大值，最小值，平均值等等
+
+假如根据key1分组，聚合查询每组的数据条数
+db.[collectionname].aggregate([
+    {
+        $group:{
+            _id:"$key1",    //根据key1分组
+            Total:{         //每组的输出Key的名称，可自定义
+                $sum:1      //查询每组的数据总量
+            }
+        }
+    }
+]);
+
+假如根据key1分组，聚合查询每组中key2这个字段的最大的值
+db.[collectionname].aggregate([
+    {
+        $group:{
+            "_id":"$key1",
+            "MaxKey2":{       
+                $max:"$key2"
+            }
+        }
+    }
+]);
+
+加入根据key1分组，聚合查询每组中key2字段中的最小值
+db.[collectionname].aggregate([
+    {
+        $group:{
+            "_id":"$key1",
+            "MinKey2":{
+                $min:"$key2"
+            }
+        }
+    }
+]);
